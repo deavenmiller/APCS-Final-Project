@@ -1,5 +1,5 @@
 package Actors;
 
-public class Player extends Actor {
+public class Player {
 
 }
