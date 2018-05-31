@@ -1,45 +1,29 @@
 package Actors;
 
-public class Platform {
+import java.awt.Graphics;
+import java.awt.Rectangle;
+
+import GUI.GameState;
+
+public class Platform extends Rectangle {
+	private static final long serialVersionUID = 1L;
 	
-	private int width;
-	private int height;
-	private boolean moveable;
+	public static final int width = 100;
+	public static final int height = 20;
 	
-	public Platform() {
-		width = 0;
-		height = 0;
-		moveable = false;
-	}
-	
-	public Platform(int w, int h, boolean move) {
-		width = w;
-		height = h;
-		moveable = move;
-	}
-	
-	public int getWidth() {
-		return width;
-	}
-	
-	public int getHeight() {
-		return height;
-	}
+	public Platform(int x, int y) {
 		
-	public boolean isMoveable() {
-		return moveable;
+		setBounds(x, y, width, height);
+		
 	}
 	
-	public void setWidth(int x) {
-		width = x;
+	public void tick() {
+		x = x - (int) GameState.xOffset;
+		y = y - (int) GameState.yOffset;
 	}
 	
-	public void setHeight(int y) {
-		height = y;
-	}
-	
-	public void setMoveable(boolean t) {
-		moveable = t;
+	public void draw(Graphics g) {
+		g.fillRect(x, y, width, height);
 	}
 	
 }
